@@ -8,7 +8,7 @@ import java.net.URL;
 @SuppressWarnings("CallToPrintStackTrace")
 public class Http {
 
-    public static String get(String url) throws IOException {
+    public String get(String url) throws IOException {
         String responseBody;
         Reader in = null;
         try {
@@ -22,7 +22,7 @@ public class Http {
         return responseBody;
     }
 
-    protected static String readAllChars(Reader reader) throws IOException {
+    protected String readAllChars(Reader reader) throws IOException {
         char[] buffer = new char[2048];
         StringBuilder text = new StringBuilder();
         int count;
@@ -32,7 +32,7 @@ public class Http {
         return text.toString();
     }
 
-    protected static void close(Reader in) {
+    protected void close(Reader in) {
         if (in != null) {
             try {
                 in.close();
